@@ -1,193 +1,123 @@
-Approach Explanation – Adobe Hackathon Round 1B
-Persona-Driven Document Intelligence
-adobe_r1b/
-├── input/                      # Folder to store 3–10 input PDFs
-├── output/                     # Folder where final JSON output will be saved
-├── main.py                     # Main pipeline to run extraction + prioritization
-├── extractor/                  # Modular logic
-│   ├── __init__.py
-│   ├── loader.py               # Load + parse PDFs (PyMuPDF/pdfplumber)
-│   ├── persona_parser.py       # Parse persona & job-to-be-done
-│   ├── section_ranker.py       # Rank sections based on semantic relevance
-│   ├── summarizer.py           # Refine subsection text
-│   └── formatter.py            # Create final output JSON
-├── models/                     # Store MiniLM model or SentenceTransformer wrapper
-│   └── embedder.py
-├── approach_explanation.md     # Required: Explain your methodology (300–500 words)
-├── requirements.txt
-├── Dockerfile
-└── README.md
+# **Approach Explanation – Adobe Hackathon Round 1B**
 
-Problem Statement
+**Theme:** Persona-Driven Document Intelligence
+
+---
+
+## **Problem Statement**
+
 Given:
 
-3 Collections of PDFs (Travel Planning, Adobe Acrobat Learning, Recipe Collection)
+* **3 collections of related PDFs** (e.g., Travel Planning, Adobe Acrobat Learning, Recipe Collection).
+* **An input JSON** specifying:
 
-An input JSON with:
+  * `persona` (e.g., Travel Planner)
+  * `job_to_be_done` (e.g., Plan a 4-day trip for 10 college friends).
 
-persona
+The goal is to:
 
-job_to_be_done
+1. Identify **top relevant sections** across multiple PDFs.
+2. Extract **fine-grained subsections** for detailed insights.
+3. Output a **structured JSON** with:
 
-Goal:
+   * Metadata (persona, job, input files)
+   * Ranked sections (title, page number, importance)
+   * Subsection-level analysis (highly relevant snippets).
 
-Identify top relevant sections across multiple PDFs
+---
 
-Extract fine-grained subsections
+## **Design Principles**
 
-Output a structured JSON with:
+✔ **Lightweight:** CPU-only, model size ≤ 200MB, runtime < 60s per collection.
+✔ **Accurate:** Semantic similarity-based, not keyword-driven.
+✔ **Structured:** Output conforms to Adobe’s expected JSON schema.
 
-Metadata
+---
 
-Ranked sections (titles, pages)
+## **Pipeline Overview**
 
-Subsection-level summaries
+### **Step 1: Input Parsing & Loading**
 
-Design Principles
-Lightweight: CPU-only, ≤200MB model, <60s runtime per collection.
+* Read `challenge1b_input.json` for persona and job-to-be-done.
+* Load PDFs from `Collection/PDFs/` using **PyMuPDF** (`page.get_text("blocks")`).
 
-Accurate: Leverage semantic similarity, not keyword search.
+---
 
-Structured Output: Matches Adobe challenge format.
+### **Step 2: Chunk Extraction & Cleaning**
 
-Pipeline Overview
-Step 1: Load Persona & PDFs
-Parse challenge1b_input.json:
+* Extract **block-level text chunks**.
+* Filter noise: remove empty strings and fragments shorter than 50 characters.
+* Represent as:
 
-json
-Copy
-Edit
-{
-  "persona": "Travel Planner",
-  "job_to_be_done": "Plan a trip of 4 days for a group of 10 college friends."
-}
-Load PDFs from respective Collection/PDFs/ folder using PyMuPDF.
-
-Step 2: Extract Text Chunks
-Use fitz (PyMuPDF) → page.get_text("blocks") for block-level text.
-
-Clean text:
-
-Remove empty strings
-
-Filter blocks shorter than 50 chars (junk)
-
-Create Chunk objects:
-
-python
-Copy
-Edit
+```python
 Chunk(document="file.pdf", page_number=2, text="Actual content")
-Step 3: Semantic Relevance Scoring
-Embedding Model: sentence-transformers/all-MiniLM-L6-v2
+```
 
-Size: ~90MB
+---
 
-CPU inference ~0.2s per 1,000 tokens
+### **Step 3: Semantic Relevance Scoring**
 
-Combine persona + job → query:
+* **Model:** `sentence-transformers/all-MiniLM-L6-v2` (\~90MB, CPU-friendly).
+* Create a **query**:
 
-arduino
-Copy
-Edit
-"{persona}. Task: {job}"
-Compute embeddings:
+```
+"{persona}. Task: {job_to_be_done}"
+```
 
-Query embedding
+* Compute **embeddings** for query and all chunks.
+* Rank chunks by **cosine similarity**.
 
-All chunks embeddings
+---
 
-Use cosine similarity → score each chunk.
+### **Step 4: Diversity Control**
 
-Sort chunks by score.
+* Select top 20 ranked chunks.
+* Apply **max-2-per-document** rule to avoid single-document dominance.
+* Keep **top 10 sections** for final output.
+  *(Future: Implement **MMR** for improved diversity.)*
 
-Step 4: Diversity Boost
-Problem: Without control, one PDF dominates (e.g., “Tips and Tricks” in Collection 1).
-Solution:
+---
 
-Take top 20 ranked chunks.
+### **Step 5: Subsection Refinement**
 
-Apply max-2-per-document rule.
+* For each top section:
 
-Keep final top 10 for extracted sections.
+  * Split text into smaller subsections (\~300 chars).
+  * Rank by semantic similarity.
+  * Keep **top 3 refined chunks** per section.
 
-(Optional Future Step: MMR for embedding-level diversity).
+---
 
-Step 5: Subsection Refinement
-For each top section:
+### **Step 6: JSON Output Formatting**
 
-Split text into smaller sentences/chunks (~300 chars) using regex.
+* **Metadata:** input documents, persona, job, timestamp.
+* **Extracted Sections:**
 
-Rank each subsection by cosine similarity with query.
+  * Title = first meaningful line (non-bullet).
+  * Page number + importance rank.
+* **Subsection Analysis:**
 
-Keep top 3 subsections per section.
+  * Group refined chunks with relevance scores.
 
-Output format:
+---
 
-json
-Copy
-Edit
-{
-  "document": "file.pdf",
-  "page_number": 8,
-  "refined_chunks": [
-    { "refined_text": "...", "score": 0.43 }
-  ]
-}
-Step 6: Output Formatting
-Metadata:
+## **Strengths**
 
-Input PDFs
+✅ Fully **offline**, CPU-optimized pipeline.
+✅ **Persona-aware semantic ranking** ensures contextually relevant output.
+✅ Matches Adobe’s **structured JSON format**.
 
-Persona & Job
+---
 
-Timestamp
+## **Future Enhancements**
 
-Extracted Sections:
+✔ **MMR-based diversity** for more balanced selection.
+✔ **LLM-driven summarization** for human-like summaries.
+✔ **Interactive dashboard** for visualization and review.
 
-Title = first meaningful non-bullet line or first text line.
+---
 
-Rank by importance.
+### **Author:** Riddhi Sharma
 
-Subsection Analysis:
+**Hackathon:** Adobe India – Understand Your Document (Round 1B)
 
-Group by document + page.
-
-Final JSON:
-
-json
-Copy
-Edit
-{
-  "metadata": {...},
-  "extracted_sections": [...],
-  "subsection_analysis": [...]
-}
-Sample Workflow
-bash
-Copy
-Edit
-python main.py
-Outputs:
-
-bash
-Copy
-Edit
-Collection 1/challenge1b_output.json
-Collection 2/challenge1b_output.json
-Collection 3/challenge1b_output.json
-Strengths
-✅ CPU-optimized
-✅ Semantic-driven, persona-aware
-✅ Matches Adobe JSON format
-✅ Multi-collection automation
-
-Future Enhancements
-MMR (Maximal Marginal Relevance) for better diversity.
-
-LLM-based summarization for natural, concise summaries.
-
-Visualization dashboard for interactive review.
-
-Author: Riddhi Sharma
-Hackathon: Adobe India – Understand Your Document (Round 1B)
