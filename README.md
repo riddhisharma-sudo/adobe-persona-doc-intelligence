@@ -1,22 +1,26 @@
-Adobe Hackathon Round 1B – Persona-Driven Document Intelligence
-Overview
-This project processes multiple PDFs related to a given persona and job-to-be-done, extracts the most relevant sections, and provides a structured JSON output including:
 
-Metadata
+# **Adobe Hackathon Round 1B – Persona-Driven Document Intelligence**
 
-Extracted Sections
+## **Overview**
 
-Refined Subsection Analysis
+This project acts as an **intelligent document analyst**, designed to process multiple related PDFs, extract **persona-driven relevant sections**, and produce a structured **JSON output** with:
 
-Folder Structure
-pgsql
-Copy
-Edit
+✅ **Metadata** (persona, job-to-be-done, input docs)
+✅ **Extracted Top Sections** (with importance ranking)
+✅ **Refined Subsection Analysis** (smaller, highly relevant text chunks)
+
+The solution is optimized for **offline, CPU-only execution**, making it suitable for real-world enterprise use cases.
+
+---
+
+## **Project Structure**
+
+```
 Challenge_1b/
 ├── Collection 1/                    # Travel Planning
 │   ├── PDFs/                        # South of France guides
-│   ├── challenge1b_input.json       # Input configuration
-│   └── challenge1b_output.json      # Analysis results
+│   ├── challenge1b_input.json       # Input config (persona + job)
+│   └── challenge1b_output.json      # Output with ranked sections
 ├── Collection 2/                    # Adobe Acrobat Learning
 │   ├── PDFs/
 │   ├── challenge1b_input.json
@@ -26,86 +30,154 @@ Challenge_1b/
 │   ├── challenge1b_input.json
 │   └── challenge1b_output.json
 └── README.md
-Approach
-1. Input Parsing
-Read persona and job-to-be-done from challenge1b_input.json.
+```
 
-Load all PDFs from the respective PDFs/ folder.
+---
 
-2. Chunk Extraction
-Use PyMuPDF (fitz) to extract page-level text blocks.
+## **Architecture Diagram**
 
-Filter out tiny or irrelevant text fragments.
+```text
+Persona + Job
+     │
+     ▼
+Input JSON  ──────────────►  PDF Loader (PyMuPDF)
+                                  │
+                                  ▼
+                         Chunk Extraction & Cleaning
+                                  │
+                                  ▼
+                       Embedding (MiniLM Sentence Transformer)
+                                  │
+                                  ▼
+              ┌──────── Semantic Similarity Ranking ────────┐
+              │                                              │
+      Diversity Control                               Subsection Analysis
+ (Top N, max-2-per-doc)                              (Top 3 refined chunks)
+              │                                              │
+              └──────────────────────┬───────────────────────┘
+                                     ▼
+                              JSON Output Generator
+```
 
-3. Semantic Ranking
-Model: sentence-transformers/all-MiniLM-L6-v2 (fast, CPU-friendly).
+---
 
-Combine persona + job into a query:
+## **Approach**
 
-arduino
-Copy
-Edit
-"{persona}. Task: {job}"
-Compute embeddings for:
+### **1. Input Parsing**
 
-Query
+* Read **persona** and **job-to-be-done** from `challenge1b_input.json`.
+* Load all PDFs from the `PDFs/` folder.
 
-All text chunks
+### **2. Chunk Extraction**
 
-Rank chunks by cosine similarity using sentence-transformers.
+* Use **PyMuPDF (fitz)** to extract **page-level text blocks**.
+* Filter out **tiny or irrelevant fragments** for clean chunks.
 
-4. Diversity Control
-Take top 20 chunks by score.
+### **3. Semantic Ranking**
 
-Apply max-2-per-document constraint to avoid dominance by one file.
+* **Model:** `sentence-transformers/all-MiniLM-L6-v2` (fast, CPU-friendly).
+* Combine persona & job into a **query**:
 
-Keep top 10 after filtering.
+  ```
+  "{persona}. Task: {job_to_be_done}"
+  ```
+* Compute **embeddings** for:
 
-(Optional Future Step: Use MMR for smarter diversity control).
+  * Query
+  * All extracted chunks
+* Rank chunks using **cosine similarity**.
 
-5. Subsection Analysis
-For each top section:
+### **4. Diversity Control**
 
-Split into smaller chunks (≈300 characters, sentence-based).
+* Take **top 20 chunks by relevance score**.
+* Apply **max-2-per-document** rule to avoid bias.
+* Keep **final top 10** for output.
+  *(Future: Add MMR for better diversity control)*
 
-Rank again by semantic similarity.
+### **5. Subsection Analysis**
 
-Keep top-3 refined chunks per section.
+* For each selected section:
 
-6. JSON Output
-Metadata: Input files, persona, job, timestamp.
+  * Split into smaller chunks (\~300 characters).
+  * Rank again using semantic similarity.
+  * Keep **top-3 refined chunks** per section.
 
-Extracted Sections: Document name, title, page number, importance rank.
+### **6. JSON Output**
 
-Section title = first meaningful non-bullet line.
+* Metadata:
 
-Subsection Analysis: Grouped refined chunks with scores.
+  * Input documents
+  * Persona & job
+  * Processing timestamp
+* Extracted sections:
 
-Why This Approach
-✅ Lightweight & CPU-friendly
-✅ Works offline (model <200MB)
-✅ Semantic relevance + diversity boost
-✅ Output aligns with Adobe’s expected JSON format
+  * Document name
+  * Section title
+  * Page number
+  * Importance rank
+* Subsection analysis:
 
-How to Run
-Run the script for all collections:
+  * Refined smaller chunks with scores
 
-bash
-Copy
-Edit
+---
+
+## **Tech Stack**
+
+* **Programming Language:** Python 3.10+
+* **Libraries:**
+
+  * `PyMuPDF (fitz)` → PDF text extraction
+  * `sentence-transformers` → Embedding & ranking
+  * `numpy` & `scikit-learn` → Cosine similarity
+  * `json` → Structured output
+* **Model:** `all-MiniLM-L6-v2` (≈120MB, CPU-friendly)
+* **Runtime:** CPU-only, fully offline
+
+---
+
+## **Docker Setup**
+
+### **Step 1: Build Docker Image**
+
+```bash
+docker build -t persona-driven-intelligence .
+```
+
+### **Step 2: Run Container**
+
+```bash
+docker run --rm -v $(pwd):/app persona-driven-intelligence python main.py
+```
+
+---
+
+## **How to Run (Without Docker)**
+
+### **Step 1: Install Dependencies**
+
+```bash
+pip install -r requirements.txt
+```
+
+### **Step 2: Run for All Collections**
+
+```bash
 python main.py
-Outputs:
+```
 
-bash
-Copy
-Edit
+### **Outputs Generated**
+
+```
 Collection 1/challenge1b_output.json
 Collection 2/challenge1b_output.json
 Collection 3/challenge1b_output.json
-Sample Output (Collection 1)
-json
-Copy
-Edit
+```
+
+---
+
+## **Sample Output (Collection 1)**
+
+```json
 {
   "metadata": {
     "input_documents": [
@@ -138,12 +210,23 @@ Edit
     }
   ]
 }
-Future Improvements
-✅ Implement MMR (Maximal Marginal Relevance) for better diversity.
+```
 
-✅ Add LLM-based summarization for more natural summaries.
+---
 
-✅ Create a visual dashboard for interactive review.
+## **Future Improvements**
 
-Author: Riddhi Sharma
-Hackathon: Adobe India – Understand Your Document (Round 1B)
+✔ Implement **Maximal Marginal Relevance (MMR)** for better diversity.
+✔ Add **LLM-based summarization** for natural summaries.
+✔ Create an **interactive dashboard** for visualization.
+
+---
+
+## **Author**
+
+**Riddhi Sharma**
+*Adobe Hackathon 2025 – Round 1B Submission*
+
+---
+
+
