@@ -1,0 +1,262 @@
+{
+  "metadata": {
+    "input_documents": [
+      "Breakfast Ideas.pdf",
+      "Dinner Ideas - Mains_1.pdf",
+      "Dinner Ideas - Mains_2.pdf",
+      "Dinner Ideas - Mains_3.pdf",
+      "Dinner Ideas - Sides_1.pdf",
+      "Dinner Ideas - Sides_2.pdf",
+      "Dinner Ideas - Sides_3.pdf",
+      "Dinner Ideas - Sides_4.pdf",
+      "Lunch Ideas.pdf"
+    ],
+    "persona": "Food Contractor",
+    "job_to_be_done": "Prepare a vegetarian buffet-style dinner menu for a corporate gathering, including gluten-free items.",
+    "processing_timestamp": "2025-07-28T20:36:18.863465"
+  },
+  "extracted_sections": [
+    {
+      "document": "Breakfast Ideas.pdf",
+      "section_title": "• ",
+      "importance_rank": 1,
+      "page_number": 16
+    },
+    {
+      "document": "Dinner Ideas - Mains_3.pdf",
+      "section_title": " ",
+      "importance_rank": 2,
+      "page_number": 6
+    },
+    {
+      "document": "Dinner Ideas - Mains_1.pdf",
+      "section_title": " ",
+      "importance_rank": 3,
+      "page_number": 5
+    },
+    {
+      "document": "Lunch Ideas.pdf",
+      "section_title": "• ",
+      "importance_rank": 4,
+      "page_number": 14
+    },
+    {
+      "document": "Dinner Ideas - Sides_2.pdf",
+      "section_title": "o 1/2 cup diced carrots ",
+      "importance_rank": 5,
+      "page_number": 11
+    },
+    {
+      "document": "Dinner Ideas - Mains_1.pdf",
+      "section_title": " ",
+      "importance_rank": 6,
+      "page_number": 12
+    },
+    {
+      "document": "Lunch Ideas.pdf",
+      "section_title": "• ",
+      "importance_rank": 7,
+      "page_number": 4
+    },
+    {
+      "document": "Dinner Ideas - Mains_1.pdf",
+      "section_title": " ",
+      "importance_rank": 8,
+      "page_number": 14
+    },
+    {
+      "document": "Breakfast Ideas.pdf",
+      "section_title": "• ",
+      "importance_rank": 9,
+      "page_number": 11
+    },
+    {
+      "document": "Dinner Ideas - Mains_2.pdf",
+      "section_title": " ",
+      "importance_rank": 10,
+      "page_number": 2
+    }
+  ],
+  "subsection_analysis": [
+    {
+      "document": "Breakfast Ideas.pdf",
+      "page_number": 16,
+      "refined_chunks": [
+        {
+          "refined_text": "Cottage Cheese and Veggie Bowl \nIngredients:\n• \n1 cup cottage cheese \n• \n1/4 cup diced cucumber \n• \n1/4 cup cherry tomatoes, halved \n• \n1/4 cup diced bell pepper \n• \nSalt and pepper to taste \nInstructions:\n• \nIn a bowl, combine cottage cheese, cucumber, cherry tomatoes, and bell pepper.",
+          "score": 0.3844
+        },
+        {
+          "refined_text": "• \nSeason with salt and pepper. • \nServe immediately. Almond Butter and Apple Slices \nIngredients:\n• \n1 apple, sliced \n• \n2 tablespoons almond butter \nInstructions:\n• \nSpread almond butter on each apple slice. • \nServe immediately.",
+          "score": 0.2757
+        },
+        {
+          "refined_text": "• \nServe immediately.",
+          "score": 0.2393
+        }
+      ]
+    },
+    {
+      "document": "Dinner Ideas - Mains_3.pdf",
+      "page_number": 6,
+      "refined_chunks": [
+        {
+          "refined_text": "Honey Garlic Pork Ribs \nIngredients:\n \n2 pounds pork ribs \n \n1/4 cup honey \n \n1/4 cup soy sauce \n \n2 tablespoons rice vinegar \n \n3 cloves garlic, minced \n \n1 teaspoon grated ginger \n \n1 teaspoon paprika \n \nSalt and pepper to taste \n \nSliced green onions for garnish \nInstructions:\n \nPreheat oven to 300°F (150°C).",
+          "score": 0.3867
+        },
+        {
+          "refined_text": " \nSeason ribs with salt, pepper, and paprika, then place in a baking dish.  \nIn a bowl, mix honey, soy sauce, rice vinegar, garlic, and ginger. Pour over the ribs.  \nCover with foil and bake for 2.5 hours, basting occasionally with the sauce.",
+          "score": 0.3248
+        },
+        {
+          "refined_text": " \nSeason with salt and pepper, and sprinkle with Parmesan cheese.  \nServe warm.",
+          "score": 0.3155
+        }
+      ]
+    },
+    {
+      "document": "Dinner Ideas - Mains_1.pdf",
+      "page_number": 5,
+      "refined_chunks": [
+        {
+          "refined_text": " \nShredded lettuce, diced tomatoes, shredded cheese, sour cream, and salsa for toppings \nInstructions:\n \nIn a skillet, cook ground beef over medium heat until browned.  \nAdd diced onion and minced garlic, sauté until softened.  \nStir in taco seasoning and water, simmer until thickened.",
+          "score": 0.4306
+        },
+        {
+          "refined_text": " \nIn a skillet, cook ground beef, diced onion, and minced garlic until browned.  \nStir in marinara sauce and simmer for 10 minutes.  \nIn a bowl, mix ricotta cheese, egg, grated Parmesan cheese, basil, and oregano.  \nSpread a thin layer of meat sauce in a baking dish.",
+          "score": 0.4096
+        },
+        {
+          "refined_text": "Lasagna \nIngredients:\n \n1 pound ground beef \n \n1 small onion, diced \n \n2 cloves garlic, minced \n \n1 jar (24 ounces) marinara sauce \n \n1 can (15 ounces) ricotta cheese \n \n1 egg \n \n1/4 cup grated Parmesan cheese \n \n1 teaspoon dried basil \n \n1 teaspoon dried oregano \n \n9 lasagna noodles, cooked \n \n2 cups shredded mozzarella cheese \nInstructions:\n \nPreheat oven to 375°F (190°C).",
+          "score": 0.3832
+        }
+      ]
+    },
+    {
+      "document": "Lunch Ideas.pdf",
+      "page_number": 14,
+      "refined_chunks": [
+        {
+          "refined_text": "• \nLayer the turkey, apple slices, and spinach on top. • \nTop with the second slice of bread and cut in half.",
+          "score": 0.3781
+        },
+        {
+          "refined_text": "Turkey and Apple Sandwich \nIngredients:\n• \n2 slices whole grain bread \n• \n4 slices turkey breast \n• \n1/2 apple, thinly sliced \n• \n1/4 cup baby spinach \n• \n1 tablespoon mustard or mayo \nInstructions:\n• \nSpread mustard or mayo on one slice of bread.",
+          "score": 0.3631
+        },
+        {
+          "refined_text": "Mediterranean Tuna Salad \nIngredients:\n• \n1 can tuna, drained \n• \n1/4 cup cherry tomatoes, halved \n• \n1/4 cup cucumber, diced \n• \n1/4 cup black olives, sliced \n• \n1/4 cup feta cheese, crumbled \n• \n2 tablespoons olive oil \n• \n1 tablespoon lemon juice \n• \nSalt and pepper to taste \nInstructions:\n• \nIn a bowl, combine the tuna, tomatoes, cucumber, olives, and feta cheese.",
+          "score": 0.3351
+        }
+      ]
+    },
+    {
+      "document": "Dinner Ideas - Sides_2.pdf",
+      "page_number": 11,
+      "refined_chunks": [
+        {
+          "refined_text": "o Sauté potatoes in sesame oil until lightly browned. o Add soy sauce, sugar, and water, simmer until potatoes are tender. o Garnish with sesame seeds and serve warm. Garlic Bread\no 1 baguette \no 1/2 cup butter \no 4 cloves garlic \no 1/4 cup parsley \no 1 teaspoon salt \n \nInstructions:",
+          "score": 0.3253
+        },
+        {
+          "refined_text": "o 1/2 cup diced carrots \no 2 eggs \no 2 tablespoons soy sauce \no 1 tablespoon sesame oil \no 1/4 cup chopped green onions \n \nInstructions:\no Sauté diced onion, peas, and carrots in sesame oil until softened. o Push vegetables to the side and scramble eggs in the same pan.",
+          "score": 0.3177
+        },
+        {
+          "refined_text": "o Add cooked rice and soy sauce, stir to combine. o Cook until heated through. o Garnish with chopped green onions and serve. Fufu\no 2 cups cassava flour \no 4 cups water \n \nInstructions:\no Bring water to a boil. o Gradually add cassava flour, stirring constantly until thickened.",
+          "score": 0.2952
+        }
+      ]
+    },
+    {
+      "document": "Dinner Ideas - Mains_1.pdf",
+      "page_number": 12,
+      "refined_chunks": [
+        {
+          "refined_text": " \nIn the same skillet, cook ground lamb or beef, diced onion, and minced garlic until \nbrowned.  \nStir in diced tomatoes, red wine, cinnamon, oregano, salt, and pepper.  \nSimmer for 20 minutes.  \nIn a baking dish, layer eggplant slices and meat sauce.",
+          "score": 0.398
+        },
+        {
+          "refined_text": "Jambalaya \nIngredients:\n \n1 pound chicken breast, cubed \n \n1/2 pound sausage, sliced \n \n1/2 pound shrimp, peeled and deveined \n \n1 small onion, diced \n \n2 cloves garlic, minced \n \n1 bell pepper, diced \n \n1 can (14.5 ounces) diced tomatoes \n \n1 cup chicken broth \n \n1 cup long-grain rice \n \n1 teaspoon paprika \n \n1 teaspoon thyme \n \n1 teaspoon cayenne pepper \n \n2 tablespoons olive oil \n \nSalt and pepper to taste \nInstructions:\n \nIn a large pot, heat olive oil over medium heat.",
+          "score": 0.3569
+        },
+        {
+          "refined_text": " \nCook cubed chicken and sliced sausage until browned, then set aside.  \nIn the same pot, sauté diced onion, minced garlic, and diced bell pepper until softened.  \nStir in diced tomatoes, chicken broth, rice, paprika, thyme, cayenne pepper, salt, and \npepper.",
+          "score": 0.3253
+        }
+      ]
+    },
+    {
+      "document": "Lunch Ideas.pdf",
+      "page_number": 4,
+      "refined_chunks": [
+        {
+          "refined_text": "• \nSeason with salt and pepper. • \nServe in lettuce leaves. Veggie and Hummus Wrap \nIngredients:\n• \n1 whole wheat tortilla \n• \n1/2 cup hummus \n• \n1/2 cup cucumber, sliced \n• \n1/2 cup bell pepper, sliced",
+          "score": 0.3517
+        },
+        {
+          "refined_text": "• \nServe on lettuce leaves or whole grain bread.",
+          "score": 0.3415
+        },
+        {
+          "refined_text": "• \nLayer the mozzarella, tomato, and basil on top. • \nDrizzle with balsamic glaze and season with salt and pepper. • \nTop with the second slice of bread and cut in half.",
+          "score": 0.3402
+        }
+      ]
+    },
+    {
+      "document": "Dinner Ideas - Mains_1.pdf",
+      "page_number": 14,
+      "refined_chunks": [
+        {
+          "refined_text": " \nIn a large bowl, mix ground beef, ground pork, diced onion, minced garlic, breadcrumbs, \nmilk, beaten egg, ketchup, Worcestershire sauce, salt, and pepper.  \nShape the mixture into a loaf and place in a baking dish.  \nBake for 1 hour until cooked through.  \nLet rest before slicing and serving.",
+          "score": 0.4394
+        },
+        {
+          "refined_text": " \n1 pound ground beef \n \n1/2 pound ground pork \n \n1 small onion, diced \n \n2 cloves garlic, minced \n \n1/2 cup breadcrumbs \n \n1/4 cup milk \n \n1 egg, beaten \n \n1/4 cup ketchup \n \n1 tablespoon Worcestershire sauce \n \n1 teaspoon salt \n \n1/2 teaspoon pepper \nInstructions:\n \nPreheat oven to 350°F (175°C).",
+          "score": 0.391
+        },
+        {
+          "refined_text": "Paella \nIngredients:\n \n1/2 pound chicken breast, cubed \n \n1/2 pound shrimp, peeled and deveined \n \n1/2 pound mussels, cleaned \n \n1 small onion, diced \n \n2 cloves garlic, minced \n \n1 bell pepper, diced \n \n1 cup short-grain rice \n \n2 cups chicken broth \n \n1/2 cup white wine \n \n1/4 cup olive oil \n \n1 teaspoon saffron \n \n1 teaspoon paprika \n \nSalt and pepper to taste \n \nLemon wedges for garnish \nInstructions:\n \nIn a large skillet, heat olive oil over medium heat.",
+          "score": 0.3004
+        }
+      ]
+    },
+    {
+      "document": "Breakfast Ideas.pdf",
+      "page_number": 11,
+      "refined_chunks": [
+        {
+          "refined_text": "• \n1/4 cup diced onion \n• \n1/4 cup cooked sausage or bacon \n• \nSalt and pepper to taste \n• \n1 tablespoon olive oil \nInstructions:\n• \nPreheat oven to 350°F (175°C). • \nIn a bowl, whisk together eggs, milk, salt, and pepper. • \nStir in cheese, bell pepper, onion, and sausage or bacon.",
+          "score": 0.3134
+        },
+        {
+          "refined_text": "• \nPlace the cheese on top of the egg to melt. • \nAssemble the sandwich with the egg, cheese, and ham or bacon between the bagel \nhalves. • \nServe immediately.",
+          "score": 0.2905
+        },
+        {
+          "refined_text": "Breakfast Bagel Sandwich \nIngredients:\n• \n1 bagel, sliced and toasted \n• \n1 large egg \n• \n1 slice of cheese \n• \n1 slice of ham or bacon \n• \nSalt and pepper to taste \nInstructions:\n• \nCook the egg in a skillet over medium heat, seasoning with salt and pepper.",
+          "score": 0.2612
+        }
+      ]
+    },
+    {
+      "document": "Dinner Ideas - Mains_2.pdf",
+      "page_number": 2,
+      "refined_chunks": [
+        {
+          "refined_text": " \nIn a skillet, cook chopped bacon until crispy, then set aside.  \nIn the same skillet, sauté diced onion and minced garlic until softened.  \nAdd shrimp and cook until pink and opaque.  \nStir in cooked bacon and sliced green onions.  \nServe shrimp mixture over grits.",
+          "score": 0.3746
+        },
+        {
+          "refined_text": " \nIn a skillet, cook diced pancetta until crispy, then set aside.  \nIn a bowl, whisk eggs, grated Parmesan cheese, and heavy cream (if using).  \nIn the same skillet, sauté minced garlic until fragrant.  \nAdd cooked spaghetti and toss to coat.",
+          "score": 0.3491
+        },
+        {
+          "refined_text": "Spaghetti Carbonara \nIngredients:\n \n1 pound spaghetti \n \n4 eggs \n \n1 cup grated Parmesan cheese \n \n1/2 cup pancetta, diced \n \n2 cloves garlic, minced \n \n1/4 cup heavy cream (optional) \n \nSalt and pepper to taste \n \nChopped parsley for garnish \nInstructions:\n \nCook spaghetti according to package instructions.",
+          "score": 0.3484
+        }
+      ]
+    }
+  ]
+}

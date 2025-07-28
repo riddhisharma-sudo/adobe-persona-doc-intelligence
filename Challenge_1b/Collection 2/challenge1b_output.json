@@ -1,0 +1,244 @@
+{
+  "metadata": {
+    "input_documents": [
+      "Learn Acrobat - Create and Convert_1.pdf",
+      "Learn Acrobat - Create and Convert_2.pdf",
+      "Learn Acrobat - Edit_1.pdf",
+      "Learn Acrobat - Edit_2.pdf",
+      "Learn Acrobat - Export_1.pdf",
+      "Learn Acrobat - Export_2.pdf",
+      "Learn Acrobat - Fill and Sign.pdf",
+      "Learn Acrobat - Generative AI_1.pdf",
+      "Learn Acrobat - Generative AI_2.pdf",
+      "Learn Acrobat - Request e-signatures_1.pdf",
+      "Learn Acrobat - Request e-signatures_2.pdf",
+      "Learn Acrobat - Share_1.pdf",
+      "Learn Acrobat - Share_2.pdf",
+      "Test Your Acrobat Exporting Skills.pdf",
+      "The Ultimate PDF Sharing Checklist.pdf"
+    ],
+    "persona": "HR professional",
+    "job_to_be_done": "Create and manage fillable forms for onboarding and compliance.",
+    "processing_timestamp": "2025-07-28T20:36:11.271076"
+  },
+  "extracted_sections": [
+    {
+      "document": "Learn Acrobat - Fill and Sign.pdf",
+      "section_title": "• ",
+      "importance_rank": 1,
+      "page_number": 2
+    },
+    {
+      "document": "Learn Acrobat - Generative AI_2.pdf",
+      "section_title": "Multiple document support in AI Assistant",
+      "importance_rank": 2,
+      "page_number": 8
+    },
+    {
+      "document": "Learn Acrobat - Generative AI_2.pdf",
+      "section_title": "I have multiple profiles associated with my Adobe account. How do I select which",
+      "importance_rank": 3,
+      "page_number": 16
+    },
+    {
+      "document": "Learn Acrobat - Request e-signatures_1.pdf",
+      "section_title": "Once a file is selected, the configuration page loads.",
+      "importance_rank": 4,
+      "page_number": 10
+    },
+    {
+      "document": "Learn Acrobat - Edit_1.pdf",
+      "section_title": "the handle to resize the text block.",
+      "importance_rank": 5,
+      "page_number": 9
+    },
+    {
+      "document": "Learn Acrobat - Generative AI_1.pdf",
+      "section_title": "2. Choose from the options, or provide details in the text box. Then select Subm",
+      "importance_rank": 6,
+      "page_number": 22
+    },
+    {
+      "document": "Learn Acrobat - Request e-signatures_1.pdf",
+      "section_title": "• ",
+      "importance_rank": 7,
+      "page_number": 5
+    },
+    {
+      "document": "Learn Acrobat - Request e-signatures_1.pdf",
+      "section_title": "• ",
+      "importance_rank": 8,
+      "page_number": 19
+    },
+    {
+      "document": "Learn Acrobat - Fill and Sign.pdf",
+      "section_title": "2. Select anywhere in the form to access options, such as radio buttons. Select ",
+      "importance_rank": 9,
+      "page_number": 9
+    },
+    {
+      "document": "Learn Acrobat - Create and Convert_2.pdf",
+      "section_title": "Application-specific PDFMaker settings",
+      "importance_rank": 10,
+      "page_number": 6
+    }
+  ],
+  "subsection_analysis": [
+    {
+      "document": "Learn Acrobat - Fill and Sign.pdf",
+      "page_number": 2,
+      "refined_chunks": [
+        {
+          "refined_text": "• \nInteractive forms: These contain fields that you can select and fill in. • \nFlat forms: These do not have interactive fields. It could be a paper form or PDF that \nhasn’t been optimized for form filling.",
+          "score": 0.4524
+        },
+        {
+          "refined_text": "You can complete the forms by entering information and adding your signatures. Acrobat \nalso allows you to send your completed forms to others and securely save them in Adobe \ncloud storage.",
+          "score": 0.4199
+        },
+        {
+          "refined_text": "The Fill & Sign tool automatically detects the \nform fields like text fields, comb fields, checkboxes, and radio buttons. You can \nmanually add text and other symbols anywhere on the form using the Fill & Sign tool if \nrequired.",
+          "score": 0.3243
+        }
+      ]
+    },
+    {
+      "document": "Learn Acrobat - Generative AI_2.pdf",
+      "page_number": 8,
+      "refined_chunks": [
+        {
+          "refined_text": "Users can \nswitch between documents, with responses consolidated from various sources and proper \nattributions. Persistent history support is also included to provide continuous access to \nprevious interactions.",
+          "score": 0.234
+        },
+        {
+          "refined_text": "Multiple document support in AI Assistant\nGenAl Assistant allows users to process up to 10 documents simultaneously, including non-\nPDF formats (.doc, .docx, .rtf, .txt, .ppt, .pptx), each up to 600 pages and 100MB.",
+          "score": 0.21
+        }
+      ]
+    },
+    {
+      "document": "Learn Acrobat - Generative AI_2.pdf",
+      "page_number": 16,
+      "refined_chunks": [
+        {
+          "refined_text": "The \nrequest will be routed to the organization and administrators associated with that profile. What if I can’t find the option to request access to AI Assistant for Acrobat?",
+          "score": 0.2984
+        },
+        {
+          "refined_text": "Administer AI Assistant for enterprises\nAdobe's AI Assistant for enterprises extends generative AI features to Acrobat on the web, \nmobile, and desktop platforms. It provides centralized license management and enterprise-\nlevel technical support for adequate user support at scale.",
+          "score": 0.2695
+        },
+        {
+          "refined_text": "If your request is denied, you'll receive an email explaining why. Once declined, you can re-\nrequest AI Assistant for Acrobat from your organization.",
+          "score": 0.2524
+        }
+      ]
+    },
+    {
+      "document": "Learn Acrobat - Request e-signatures_1.pdf",
+      "page_number": 10,
+      "refined_chunks": [
+        {
+          "refined_text": "Once a file is selected, the configuration page loads. 3. Add participants:\n1. List the participants required. • \nThe Sign action is assigned by default. • \nThe Sign action allows the participant to enter field data and sign the \nagreement. • \nUp to 50 participants are supported.",
+          "score": 0.3335
+        },
+        {
+          "refined_text": "When configured, the participant \nmust enter the password before they can interact with the agreement. 4. . (Optional) Add yourself and/or CC'd parties\n• \nClick Add me to add yourself as a counter signer.",
+          "score": 0.2376
+        },
+        {
+          "refined_text": "• \nEach participant listed receives their own agreement. 2. Enter recipient email addresses followed by commas, or copy and paste a list of \nemail addresses into the Email field. 3. Configure participant authentication by clicking the key icon to the right of the \nparticipant.",
+          "score": 0.236
+        }
+      ]
+    },
+    {
+      "document": "Learn Acrobat - Edit_1.pdf",
+      "page_number": 9,
+      "refined_chunks": [
+        {
+          "refined_text": "the handle to resize the text block. You can add items to a numbered or bulleted list, create list items, convert a paragraph to a\nlist item, and conversely. You can also change list types. 1. Select Edit in the global bar. Then, from the Edit panel, select Text under Add\n2.",
+          "score": 0.1381
+        },
+        {
+          "refined_text": "Press Backspace to\nremove the new row and position the cursor back to the end of the previous\nTo create a numbered or bulleted list:\n1. Place the cursor in the document at the location where you want to add a list. 2. Choose the appropriate list type under Format Text.",
+          "score": 0.1167
+        },
+        {
+          "refined_text": "To add or remove items from a numbered or bulleted list:\n• Note: You can add or remove items to the list at all nested levels using the\nsame familiar controls that you use in Microsoft® Office. For example,\npress Enter at the end of a list item to insert a new row.",
+          "score": 0.1132
+        }
+      ]
+    },
+    {
+      "document": "Learn Acrobat - Generative AI_1.pdf",
+      "page_number": 22,
+      "refined_chunks": [
+        {
+          "refined_text": "2. Choose from the options, or provide details in the text box. Then select Submit\nSelect the applicable options to report content",
+          "score": 0.2069
+        }
+      ]
+    },
+    {
+      "document": "Learn Acrobat - Request e-signatures_1.pdf",
+      "page_number": 5,
+      "refined_chunks": [
+        {
+          "refined_text": "That means those fields will be available to \nthe signer for filling the information and signing the form.",
+          "score": 0.4248
+        },
+        {
+          "refined_text": "• \nSimplified mode for multiple signers \nThis mode provides simplified authoring with the capability of assigning fields to \nmultiple signers. When you select a signer from the right pane and add fields in the \nform, the fields are assigned to the signer.",
+          "score": 0.312
+        }
+      ]
+    },
+    {
+      "document": "Learn Acrobat - Request e-signatures_1.pdf",
+      "page_number": 19,
+      "refined_chunks": [
+        {
+          "refined_text": "• \nView Activity Report\n• \nView the current status of all child agreements created by the Bulk Send parent \ntemplate. • \nAdd Notes - Allows the user to make personal notes for the Bulk Send.",
+          "score": 0.269
+        },
+        {
+          "refined_text": "• \nDownload Form Field Data - Downloads a CSV file of the field-level content for all \nchild agreements spawned from this parent Bulk Send that have been completed.",
+          "score": 0.2681
+        },
+        {
+          "refined_text": "Adobe Acrobat supports a range of solutions for electronic and digital signatures. These \nsolutions include certificate signatures that let you sign PDF files with a certificate-based \ndigital ID. Certificate signatures are also known as digital signatures.",
+          "score": 0.1935
+        }
+      ]
+    },
+    {
+      "document": "Learn Acrobat - Fill and Sign.pdf",
+      "page_number": 9,
+      "refined_chunks": [
+        {
+          "refined_text": "2. Select anywhere in the form to access options, such as radio buttons. Select inside a\nPress Tab to move forward or Shift+Tab to move backward. 3. When finished, submit the form to either send the data to a server or create an email",
+          "score": 0.2705
+        }
+      ]
+    },
+    {
+      "document": "Learn Acrobat - Create and Convert_2.pdf",
+      "page_number": 6,
+      "refined_chunks": [
+        {
+          "refined_text": "Settings tab options available from within most applications\nThe following settings appear on the Settings tab available from within most PDFMaker-\nenabled applications. Includes the document being converted as an attachment to the PDF.",
+          "score": 0.1583
+        },
+        {
+          "refined_text": "Excel-specific options on the Settings tab\nConverts user-created Excel comments to notes and lists them in the Acrobat Comments panel. Uses actual size specified in the worksheet. Worksheets are not resized. Fit Worksheet To A Single Page",
+          "score": 0.1471
+        },
+        {
+          "refined_text": "Converts certain elements in original Office documents to PDF bookmarks: Word headings, \nExcel worksheet names, or PowerPoint titles. Selecting this option overrides any settings on \nthe Bookmarks tab of the Conversion Settings dialog box. Includes active links and hypertext in the PDF.",
+          "score": 0.1464
+        }
+      ]
+    }
+  ]
+}
