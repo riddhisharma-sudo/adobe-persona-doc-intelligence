@@ -5,9 +5,9 @@
 
 This project acts as an **intelligent document analyst**, designed to process multiple related PDFs, extract **persona-driven relevant sections**, and produce a structured **JSON output** with:
 
-✅ **Metadata** (persona, job-to-be-done, input docs)
-✅ **Extracted Top Sections** (with importance ranking)
-✅ **Refined Subsection Analysis** (smaller, highly relevant text chunks)
+ **Metadata** (persona, job-to-be-done, input docs)
+**Extracted Top Sections** (with importance ranking)
+**Refined Subsection Analysis** (smaller, highly relevant text chunks)
 
 The solution is optimized for **offline, CPU-only execution**, making it suitable for real-world enterprise use cases.
 
@@ -228,5 +228,6 @@ Collection 3/challenge1b_output.json
 *Adobe Hackathon 2025 – Round 1B Submission*
 
 ---
+
 
 
